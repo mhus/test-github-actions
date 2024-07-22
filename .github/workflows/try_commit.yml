@@ -43,6 +43,6 @@ jobs:
         git commit -m "Try Commit ${{ github.run_id }}"
         git push --set-upstream origin try/${{ github.run_id }} || true
         gh pr create --title "Try Build ${{ github.run_id }}" --body "Try Build ${{ github.run_id }}" --base main --head try/${{ github.run_id }} || true
-        gh pr merge --merge --delete-branch try/${{ github.run_id }}
+        gh pr merge --merge --admin --delete-branch try/${{ github.run_id }}
       env:
         GH_TOKEN: ${{ github.token }}
